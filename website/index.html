@@ -16,6 +16,15 @@
     <!-- Custom styles for this template -->
     <link href="css/scrolling-nav.css" rel="stylesheet">
 
+    <style type="text/css">
+      #map {
+        width: 50%;
+        height: 400px;
+        background-color: grey;
+        margin: 0 auto 0 auto;
+      }
+    </style>
+
   </head>
 
   <body id="page-top">
@@ -40,6 +49,9 @@
             </li>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#methods">Methods</a>
+            </li>
+             <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#map">Map</a>
             </li>
           </ul>
         </div>
@@ -113,6 +125,27 @@
       </div>
     </section>
 
+    <!-- TODO: Map formatting -->
+     <section id="map">
+       <div class="container f-head">
+         <div class="row">
+           <div class=" mx-auto"></div>
+         </div>
+       </div>
+     </section>
+
+    <script>
+      function initMap() {
+      var usa = {lat: 39.5, lng: -98.35};
+      var map = new google.maps.Map(document.getElementById('map'), {zoom: 4, center: usa});
+      //var marker = new google.maps.Marker({position: usa, map: map});
+      }
+    </script>
+    <!-- Initialize Map-->
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCkPt9WkeXCj_3XDEsonU68dKl2BgVd30c&callback=initMap">
+    </script>
+
     <!-- Footer -->
     <footer class="py-5 bg-dark">
       <div class="container">
@@ -130,6 +163,9 @@
 
     <!-- Custom JavaScript for this theme -->
     <script src="js/scrolling-nav.js"></script>
+
+    <!-- Interactive Map and GeoCoding -->
+    <script src="js/geocoding.js"></script>
 
   </body>
 
