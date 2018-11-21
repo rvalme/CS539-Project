@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load staticfiles %}
 <html lang="en">
 
   <head>
@@ -11,11 +12,15 @@
     <title>Scrolling Nav - Start Bootstrap Template</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!--<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">-->
+    <link href="{% static  'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="css/scrolling-nav.css" rel="stylesheet">
-    <link href="css/search-button.css" rel="stylesheet">
+    <!--<link href="css/scrolling-nav.css" rel="stylesheet">-->
+    <link href="{% static 'css/scrolling-nav.css' %}" rel="stylesheet">
+
+    <!--<link href="css/search-button.css" rel="stylesheet">-->
+    <link href="{% static 'css/search-button.css' %}" rel="stylesheet">
 
 
 
@@ -136,7 +141,10 @@
 
     <!-- TODO: Map and search button formatting -->
      <section id="map">
+       <!-- map widget -->
        <div id="starbucksmap"></div>
+
+       <!-- text box and search button-->
        <div class="wrap">
          <div class="search">
            <input type="text" class="searchTerm" placeholder="Enter zipcode">
@@ -145,14 +153,6 @@
            </button>
          </div>
        </div>
-
-
-
-
-       <!--<div id="floating-panel">-->
-      <!--<input id="address" type="textbox" value="Boston, USA">-->
-      <!--<input id="submit" type="button" value="Search">-->
-        <!--</div>-->
 
        <!--<div class="container f-head">-->
          <!--<div class="row">-->
@@ -181,17 +181,17 @@
     </footer>
 
     <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
 
     <!-- Plugin JavaScript -->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="{% static 'vendor/jquery-easing/jquery.easing.min.js' %}"></script>
 
     <!-- Custom JavaScript for this theme -->
-    <script src="js/scrolling-nav.js"></script>
+    <script src="{% static 'js/scrolling-nav.js' %}"></script>
 
     <!-- Interactive Map and GeoCoding -->
-    <script src="js/geocoding.js"></script>
+    <script src="{% static 'js/geocoding.js' %}"></script>
 
   </body>
 
