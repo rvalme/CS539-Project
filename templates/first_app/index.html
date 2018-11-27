@@ -139,20 +139,24 @@
       </div>
     </section>
 
-    <!-- TODO: Map and search button formatting -->
+
      <section id="map">
        <!-- map widget -->
        <div id="starbucksmap"></div>
-
-       <!-- text box and search button-->
+       <!--TODO: format the text box and search button -->
        <div class="wrap">
          <div class="search">
-           <input type="text" class="searchTerm" placeholder="Enter zipcode">
-           <button type="submit" class="searchButton">
+           <input type="text" class="searchTerm" placeholder="Enter zipcode" id="location">
+           <button type="button" value="Geocode" id="searchButton">
              <i class="fa fa-search"></i>
            </button>
          </div>
        </div>
+    <!--<div id="floating-panel">-->
+      <!--<input id="address" type="textbox" value="Enter Zipcode">-->
+      <!--<input id="submit" type="button" value="Search">-->
+    <!--</div>-->
+
 
        <!--<div class="container f-head">-->
          <!--<div class="row">-->
@@ -164,11 +168,12 @@
        <!--</div>-->
      </section>
 
-
-    <!-- Initialize Map-->
+      <!-- Initialize Map-->
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCkPt9WkeXCj_3XDEsonU68dKl2BgVd30c&callback=initialize">
     </script>
+
+
 
 
 
@@ -192,6 +197,8 @@
 
     <!-- Interactive Map and GeoCoding -->
     <script src="{% static 'js/geocoding.js' %}"></script>
+
+
 
   </body>
 
