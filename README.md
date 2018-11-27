@@ -1,6 +1,6 @@
 # CS539-Project
 
-#create virtual environment with conda
+#create virtual environment with conda'\n'
 conda create --name myEnv django
 
 #activate the environment
