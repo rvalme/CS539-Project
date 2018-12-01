@@ -37,7 +37,7 @@ function codeAddress(geocoder, map) {
      function(results, status) {
       if (status === google.maps.GeocoderStatus.OK) {
         //zoom factor: 4 --> 8
-        map.setZoom(8);
+        map.setZoom(12);
         map.setCenter(results[0].geometry.location);
 ///TODO reset the map when a new zipcode/address is entered when implement markers
 //        var marker = new google.maps.Marker({
