@@ -25,6 +25,23 @@ function initialize() {
 
 }
 
+var ws = new WebSocket('ws://localhost:8888/ws');
+//var ws = new WebSocket('ws://www.example.com/ws/foobar?subscribe-broadcast&publish-broadcast&echo');
+ws.onopen = function() {
+    console.log("websocket connected");
+};
+
+ws.onmessage = function(e) {
+    console.log("Received: " + e.data);
+};
+
+ws.onerror = function(e) {
+    console.log("connection closed");
+};
+
+function send_message(msg) {
+    ws.send(msg);
+}
 
 
 //re-center the map according to the zipcode input
@@ -33,6 +50,7 @@ function codeAddress(geocoder, map) {
     //get zipcode
     var zipCode = document.getElementById('location').value;
     //only search within USA
+    send_message(zipCode);
     geocoder.geocode( { 'address': zipCode, "componentRestrictions":{"country":"USA"}},
      function(results, status) {
       if (status === google.maps.GeocoderStatus.OK) {

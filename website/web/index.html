@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-{% load staticfiles %}
 <html lang="en">
 
   <head>
@@ -12,15 +11,11 @@
     <title>Scrolling Nav - Start Bootstrap Template</title>
 
     <!-- Bootstrap core CSS -->
-    <!--<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">-->
-    <link href="{% static  'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{{ static_url("vendor/bootstrap/css/bootstrap.min.css") }}" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <!--<link href="css/scrolling-nav.css" rel="stylesheet">-->
-    <link href="{% static 'css/scrolling-nav.css' %}" rel="stylesheet">
-
-    <!--<link href="css/search-button.css" rel="stylesheet">-->
-    <link href="{% static 'css/search-button.css' %}" rel="stylesheet">
+    <link href="{{ static_url("css/scrolling-nav.css") }}" rel="stylesheet">
+    <link href="{{ static_url("css/search-button.css") }}" rel="stylesheet">
 
 
 
@@ -85,7 +80,7 @@
         <div class="row">
           <div class="mx-auto">
             <h2>About This Project</h2>
-            <p class="">This project is focused on using machine learning to determine the appropriate number of Starbucks locations per zipcode in the U.S. The following is a list of the members in our group.</p>
+            <p class="">This project is focused on using machine learning to determinet the appropriate number of Starbucks locations per zipcode in the U.S. The following is a list of the members in our group.</p>
             <ul>
               <li>Romuald Valme</li>
               <li>Zorigtbaatar Chuluundorj</li>
@@ -103,7 +98,7 @@
           <div class=" mx-auto">
             <h2>Motivation</h2>
             <p class="">
-            Due to a variety of reasons, companies often have to shut down stores. Often times the reason is because the surrounding population does not actually have a need for the company’s services. This occurrence causes huge losses for a company or business as they have spent valuable resources such as time planning and building the store, money paying workers, and product that could have been sold to customers in a more conducive environment.
+            Due to a variety of reasons, companies often have to shut down stores. Often times the reason is because the surrounding population does not actually have a need for the company’s services. This occurrence causes huge losses for a company or business as they have spent valuable resources such as time planning and building the store, money paying workers, and product that could have been sold to customers in a more conducive environment. 
             </br></br>
             This tool will help mitigate such losses as it will allow companies to see beforehand whether or not a store may be successful in an area.
             </p>
@@ -139,24 +134,25 @@
       </div>
     </section>
 
-
+    <!-- TODO: Map and search button formatting -->
      <section id="map">
-       <!-- map widget -->
        <div id="starbucksmap"></div>
-       <!--TODO: format the text box and search button -->
        <div class="wrap">
          <div class="search">
-           <input type="text" class="searchTerm" placeholder="Enter zipcode" id="location">
+             <input type="text" class="searchTerm" placeholder="Enter zipcode" id="location">
            <button type="button" value="Geocode" id="searchButton">
              <i class="fa fa-search"></i>
            </button>
          </div>
        </div>
-    <!--<div id="floating-panel">-->
-      <!--<input id="address" type="textbox" value="Enter Zipcode">-->
-      <!--<input id="submit" type="button" value="Search">-->
-    <!--</div>-->
 
+
+
+
+       <!--<div id="floating-panel">-->
+      <!--<input id="address" type="textbox" value="Boston, USA">-->
+      <!--<input id="submit" type="button" value="Search">-->
+        <!--</div>-->
 
        <!--<div class="container f-head">-->
          <!--<div class="row">-->
@@ -168,12 +164,11 @@
        <!--</div>-->
      </section>
 
-      <!-- Initialize Map-->
+
+    <!-- Initialize Map-->
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCkPt9WkeXCj_3XDEsonU68dKl2BgVd30c&callback=initialize">
     </script>
-
-
 
 
 
@@ -186,19 +181,17 @@
     </footer>
 
     <!-- Bootstrap core JavaScript -->
-    <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
-    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{{ static_url("vendor/jquery/jquery.min.js") }}"></script>
+    <script src="{{ static_url("vendor/bootstrap/js/bootstrap.bundle.min.js") }}""></script>
 
     <!-- Plugin JavaScript -->
-    <script src="{% static 'vendor/jquery-easing/jquery.easing.min.js' %}"></script>
+    <script src="{{ static_url("vendor/jquery-easing/jquery.easing.min.js") }}"></script>
 
     <!-- Custom JavaScript for this theme -->
-    <script src="{% static 'js/scrolling-nav.js' %}"></script>
+    <script src="{{ static_url("js/scrolling-nav.js") }}"></script>
 
     <!-- Interactive Map and GeoCoding -->
-    <script src="{% static 'js/geocoding.js' %}"></script>
-
-
+    <script src="{{ static_url("js/geocoding.js") }}"></script>
 
   </body>
 
