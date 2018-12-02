@@ -30,7 +30,7 @@ function initialize() {
 
 }
 
-var ws = new WebSocket('ws://cs539-starbucks.herokuapp.com:8888/ws');
+var ws = new WebSocket('ws://cs539-starbucks.herokuapp.com/ws');
 //var ws = new WebSocket('ws://www.example.com/ws/foobar?subscribe-broadcast&publish-broadcast&echo');
 ws.onopen = function() {
     console.log("websocket connected");
