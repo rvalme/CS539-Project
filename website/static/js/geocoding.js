@@ -4,6 +4,10 @@ https://developers.google.com/maps/documentation/javascript/geocoding#GetStarted
 */
 
 //initialize map
+var geocoder;
+var map;
+var markers;
+
 function initialize() {
     var latlng = new google.maps.LatLng(39.5, -98.35);
     var mapOptions = {
@@ -11,9 +15,10 @@ function initialize() {
         center: latlng,
         mapTypeId: google.maps.MapTypeId.ROADMAP
     }
-    var map = new google.maps.Map(document.getElementById("starbucksmap"), mapOptions);
+    map = new google.maps.Map(document.getElementById("starbucksmap"), mapOptions);
 
-    var geocoder = new google.maps.Geocoder();
+    geocoder = new google.maps.Geocoder();
+    markers = []
 
     //var button = document.getElementById("floating-panel");
     var button = document.getElementById("searchButton");
@@ -33,6 +38,9 @@ ws.onopen = function() {
 
 ws.onmessage = function(e) {
     console.log("Received: " + e.data);
+    clearMarkers()
+    markers = []
+    add_markers(e.data)
 };
 
 ws.onerror = function(e) {
@@ -67,3 +75,30 @@ function codeAddress(geocoder, map) {
       }
     });
   }
+function add_markers(num_markers) {
+    //get zipcode
+    var zipCode = document.getElementById('location').value;
+    //only search within USA
+    geocoder.geocode( { 'address': zipCode, "componentRestrictions":{"country":"USA"}},
+     function(results, status) {
+      if (status === google.maps.GeocoderStatus.OK) {
+///TODO reset the map when a new zipcode/address is entered when implement markers
+        for(i = 0; i< num_markers; i++){
+            var position = new google.maps.LatLng(results[0].geometry.location.lat() + (Math.random() *.02), results[0].geometry.location.lng() + (Math.random() * .2))
+            var marker = new google.maps.Marker({
+                map: map,
+                position: position
+            });
+            markers.push(marker);
+        }
+      } else {
+        alert("Geocode was not successful for the following reason: " + status);
+      }
+    });
+  }
+
+function clearMarkers(){
+    for(i = 0; i < markers.length; i++){
+        markers[i].setMap(null)
+    }
+}
