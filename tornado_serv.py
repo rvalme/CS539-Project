@@ -2,7 +2,6 @@ import tornado.web
 import tornado.httpserver
 import os
 from tornado.web import StaticFileHandler
-import config
 import tornado.websocket
 import csv
 
