@@ -25,7 +25,11 @@ class SimpleWebSocket(tornado.websocket.WebSocketHandler):
 
     def on_message(self, message):
         self.zip_dict = add_zip(message)
-        [client.write_message(self.zip_dict[message.split('|')[0]]) for client in self.connections]
+        try:
+            wrmsg = self.zip_dict[message.split('|')[0]]
+        except:
+            wrmsg = '0|0'
+        [client.write_message(wrmsg) for client in self.connections]
 
     def on_close(self):
         self.connections.remove(self)

@@ -104,8 +104,6 @@ function add_markers(num_markers) {
             });
             markers.push(marker);
         }
-      } else {
-        alert("Geocode was not successful for the following reason: " + status);
       }
     });
   }
