@@ -5,25 +5,27 @@ from tornado.web import StaticFileHandler
 import tornado.websocket
 import csv
 
-def add_zip(csv_file='LinearRegression.csv'):
+def add_zip(msg, csv_file='data.csv'):
     zip_dict = {}
-    with open(csv_file) as f:
+    dtype = msg.split('|')[1]
+    with open(dtype + csv_file) as f:
         reader = csv.reader(f)
         for row in reader:
-            zip_dict[row[0].zfill(5)] = row[1] #zipcode is the key
+            zip_dict[row[0].zfill(5)] = row[2] + '|' + row[1] #zipcode is the key 1 is the actual 2 is the predicted
     return zip_dict
 
 
 
 class SimpleWebSocket(tornado.websocket.WebSocketHandler):
     connections = set()
-    zip_dict = add_zip()
+    zip_dict = {}
 
     def open(self):
         self.connections.add(self)
 
     def on_message(self, message):
-        [client.write_message(self.zip_dict[message]) for client in self.connections]
+        self.zip_dict = add_zip(message)
+        [client.write_message(self.zip_dict[message.split('|')[0]]) for client in self.connections]
 
     def on_close(self):
         self.connections.remove(self)

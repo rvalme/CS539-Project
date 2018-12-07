@@ -40,7 +40,9 @@ ws.onmessage = function(e) {
     console.log("Received: " + e.data);
     clearMarkers()
     markers = []
-    add_markers(e.data)
+    res = e.data.split("|")
+    add_markers(res[0])
+    update_table(res[0], res[1])
 };
 
 ws.onerror = function(e) {
@@ -57,8 +59,19 @@ function send_message(msg) {
 function codeAddress(geocoder, map) {
     //get zipcode
     var zipCode = document.getElementById('location').value;
+    var radioClass = ""
+    if(document.getElementById("r2").checked){
+        radioClass = document.getElementById('r2').value;
+    }
+    if(document.getElementById("r3").checked){
+        radioClass = document.getElementById('r3').value;
+    }
+    else{
+        radioClass = document.getElementById('r1').value;
+    }
+
     //only search within USA
-    send_message(zipCode);
+    send_message(zipCode + "|" + radioClass);
     geocoder.geocode( { 'address': zipCode, "componentRestrictions":{"country":"USA"}},
      function(results, status) {
       if (status === google.maps.GeocoderStatus.OK) {
@@ -84,7 +97,7 @@ function add_markers(num_markers) {
       if (status === google.maps.GeocoderStatus.OK) {
 ///TODO reset the map when a new zipcode/address is entered when implement markers
         for(i = 0; i< num_markers; i++){
-            var position = new google.maps.LatLng(results[0].geometry.location.lat() + (Math.random() *.02), results[0].geometry.location.lng() + (Math.random() * .2))
+            var position = new google.maps.LatLng(results[0].geometry.location.lat() + (Math.random() *.02), results[0].geometry.location.lng() + (Math.random() * .1))
             var marker = new google.maps.Marker({
                 map: map,
                 position: position
@@ -97,6 +110,17 @@ function add_markers(num_markers) {
     });
   }
 
+function update_table(num_predicted, num_actual) {
+    var x = document.getElementById("tstar");
+    x.deleteRow(1);
+    var row = x.insertRow(1);
+    var cell1 = row.insertCell(0);
+    var cell2 = row.insertCell(1);
+    cell1.innerHTML = num_actual
+    cell2.innerHTML = num_predicted
+
+
+}
 function clearMarkers(){
     for(i = 0; i < markers.length; i++){
         markers[i].setMap(null)

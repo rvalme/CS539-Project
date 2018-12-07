@@ -62,6 +62,11 @@
              <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#map">Map</a>
             </li>
+             <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#links">Links</a>
+             <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#results">Results</a>
+            </li>
           </ul>
         </div>
       </div>
@@ -92,7 +97,7 @@
       </div>
     </section>
 
-    <section id="services" class="bg-light">
+    <section id="motivation" class="bg-light">
       <div class="container f-head">
         <div class="row">
           <div class=" mx-auto">
@@ -122,7 +127,7 @@
       </div>
     </section>
 
-    <section id="methods">
+    <section id="methods" class="bg-light">
       <div class="container f-head">
         <div class="row">
           <div class=" mx-auto">
@@ -134,17 +139,46 @@
       </div>
     </section>
 
+    <section id="results"class="">
+      <div class="container f-head">
+        <div class=" mx-auto">
+            <h2>Results</h2>
+            <img src="{{ static_url("images/accuracy_cs539.png") }}" ALIGN="left" width="50%" height="60%">
+            <img src="{{ static_url("images/feature_acc_lr.png") }}" ALIGN="top" width="50%" height="60%">
+        </div>
+      </div>
+    </section>
+
     <!-- TODO: Map and search button formatting -->
-     <section id="map">
-       <div id="starbucksmap"></div>
-       <div class="wrap">
-         <div class="search">
+     <section id="map" class="bg-light" >
+       <div id="starbucksmap">
+
+      </div>
+       <div class="wrap" ALIGN="left">
+         <div class="search" >
              <input type="text" class="searchTerm" placeholder="Enter zipcode" id="location">
            <button type="button" value="Geocode" id="searchButton">
              <i class="fa fa-search"></i>
            </button>
          </div>
        </div>
+		<div class="container">
+			<table id="tstar">
+			  <tr>
+				<th>Actual # of Starbucks</th>
+				<th>Predicted # of Starbucks</th>
+			  </tr>
+			  <tr>
+				<td>0</td>
+				<td>0</td>
+			  </tr>
+			</table>
+			<div id="rstar">
+			  <input type="radio" id="r1" name="class" value="L"> Linear Regression<br>
+			  <input type="radio" id="r2" name="class" value="L"> SVM<br>
+			  <input type="radio" id="r3" name="class" value="L"> Neural Network<br>   
+			</div>
+        </div>
 
 
 
@@ -170,7 +204,15 @@
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCkPt9WkeXCj_3XDEsonU68dKl2BgVd30c&callback=initialize">
     </script>
 
+    <section id="links"class="bg-light">
+      <div class="container f-head">
+          <div class=" mx-auto">
+            <h2>Links</h2>
+            <a href="https://github.com/rvalme/CS539-Project">Link to Our Github Page</a>
 
+        </div>
+      </div>
+    </section>
 
     <!-- Footer -->
     <footer class="py-5 bg-dark">
