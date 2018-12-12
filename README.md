@@ -6,6 +6,7 @@ Our script will concatenate the predicted values from XGBoost to the original US
 
 If you want to work with our original and uncleaned datasets, you can download the US Census data and the original Starbucks store list directly from the source by clicking on the two links directly below.
 
+</h Original Data Sources/>
 Starbucks 2017 Store List: https://www.dropbox.com/s/4ltmagcpcsfkbvc/Cleaned_Starbucks_2017.csv?dl=0
 <br />US Census Data Direct Link: https://www.census.gov/programs-surveys/acs/about.html
 
