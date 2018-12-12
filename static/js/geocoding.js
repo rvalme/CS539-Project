@@ -62,8 +62,7 @@ function codeAddress(geocoder, map) {
     var radioClass = ""
     if(document.getElementById("r2").checked){
         radioClass = document.getElementById('r2').value;
-    }
-    if(document.getElementById("r3").checked){
+    } else if (document.getElementById("r3").checked){
         radioClass = document.getElementById('r3').value;
     }
     else{
