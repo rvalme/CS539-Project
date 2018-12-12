@@ -14,5 +14,18 @@ Starbucks 2017 Store List: https://www.dropbox.com/s/4ltmagcpcsfkbvc/Cleaned_Sta
 <br />US Census Data Direct Link: https://www.census.gov/programs-surveys/acs/about.html
 
 
+###Prerequisite
+This python script predicts the number of starbucks in a zip code using US demographic census data and past starbucks locations. This script requries python3, numpy, pandas, sklearn and an input file named Combined_Count.csv, which contains the zip codes and their corresponding demographic data and number of starbucks open.
+
+###Description
+To find the optimal performance when predicting the number of stores in a zip code, our approach ranks the features in order of importance and uses different machine learning algorithms to make predictions. The features extraction is done by by decision_tree.py and hardcoded in this script.
+
+This script incrementally takes the most relevant features as input to make predictions; with the first run only using the feature with the most information gain, the second run using two features with the most information gain, and so on.
+
+The script trains on 2012 and 2013 starbucks locations and census data and predicts 2017 starbucks locations using 2017 census data
+
+###To run this code type 
+`python ln_rr.py ml_option`
+The ml_option can be 1 or 2, 1 for linear regression and 2 for neural network. The script will output the accuracy of the predictions to the standard output and save the predictions to an excel file.
 
 
