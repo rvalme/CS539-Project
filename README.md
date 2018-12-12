@@ -7,7 +7,7 @@ Our script will concatenate the predicted values from XGBoost to the original US
 If you want to work with our original and uncleaned datasets, you can download the US Census data and the original Starbucks store list directly from the source by clicking on the two links directly below.
 
 Starbucks 2017 Store List: https://www.dropbox.com/s/4ltmagcpcsfkbvc/Cleaned_Starbucks_2017.csv?dl=0
-</n>US Census Data Direct Link: https://www.census.gov/programs-surveys/acs/about.html
+\newlineUS Census Data Direct Link: https://www.census.gov/programs-surveys/acs/about.html
 
 Download format_data.py and combine_data.py. Put both these files in the same directory as as the uncleaned data files and run them both. These scripts will produce the correct output you need to run the XGBoost Script.
 
