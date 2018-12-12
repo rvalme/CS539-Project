@@ -1,6 +1,6 @@
 # CS539-Project
 
-To run all of our scripts, you will need to download our cleaned 2016 US Census data file from: https://www.dropbox.com/s/rh7xojgbkqbt5dh/2017_USCensus_Cleaned.csv?dl=0 and keep it in the same directory as our python scripts you want to run.
+To run all of our scripts, you will need to download our cleaned 2016 US Census data file from: https://www.dropbox.com/s/rh7xojgbkqbt5dh/2017_USCensus_Cleaned.csv?dl=0 and keep it in the same directory as our XGBoost Code.
 To run our XGBoost Code, download the xgboost_code_final.py and run it in the console by typing: "python xgboost_code_final.py".
 Our script will concatenate the predicted values from XGBoost to the original US Census dataset.
 
